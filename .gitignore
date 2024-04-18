@@ -2,3 +2,4 @@
 *.csv
 *.ipynb
 data/
+**/__pycache__
