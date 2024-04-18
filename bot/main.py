@@ -9,6 +9,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from config_reader import config
 from handlers import about_work, common, classification_news
 
+
 # Устанавливаем уровень логгирования
 logging.basicConfig(level=logging.INFO)
 
