@@ -27,3 +27,5 @@
 Голый лента: https://disk.yandex.ru/d/KFIrKrL6oZm1uQ
 
 Обработанный лента: https://disk.yandex.ru/d/1L2qO5hpUUCFzQ 
+
+telegram bot: @classification_news_bot
