@@ -5,12 +5,12 @@ from natasha import Doc, Segmenter, MorphVocab, NewsEmbedding, NewsMorphTagger
 from nltk.corpus import stopwords
 import logging
 
-# Определение пути к модели и токенайзеру
+
 model_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../model'))
 logging.info(f"Model path: {model_path}")
 logging.info(f"Contents of model directory: {os.listdir(model_path)}")
 
-# Загрузка токенайзера и модели
+
 try:
     tokenizer = RobertaTokenizer.from_pretrained(model_path)
     model = RobertaForSequenceClassification.from_pretrained(model_path)
@@ -18,7 +18,7 @@ except Exception as e:
     logging.error(f"Error loading model: {e}")
     raise
 
-# Классы новостей
+
 class_names = ['Культура', 'Россия', 'Мир', 'Наука и технологии', 'Спорт', 'Экономика', 'Путешествия']
 
 stop_words = stopwords.words('russian')
