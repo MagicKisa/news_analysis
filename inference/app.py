@@ -1,5 +1,6 @@
 from fastapi import FastAPI, UploadFile, HTTPException
-from .roberta_model import predict_by_filename
+from roberta_model import predict_by_filename
+
 import logging
 
 app = FastAPI()
