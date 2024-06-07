@@ -8,7 +8,7 @@ router = Router()
 
 url = 'http://127.0.0.1:8000/uploadnews/'
 
-# Определение пути к файлу относительно текущего скрипта
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 temp_file_path = os.path.join(BASE_DIR, 'temp_file.txt')
 
@@ -25,26 +25,26 @@ async def text_classification(message: Message):
     # Логируем текст новости
     logging.info(f"Received news text: {text[:100]}...")  # Логируем первые 100 символов текста
 
-    # Сохраняем текст в файл
+
     with open(temp_file_path, 'w', encoding='utf-8') as temp_file:
         temp_file.write(text)
 
     try:
-        # Используем subprocess для выполнения команды curl
+       
         result = subprocess.run(
             ["curl", "-X", "POST", url, "-F", f"news=@{temp_file_path}"],
             capture_output=True,
             text=True
         )
 
-        # Проверка статуса HTTP-ответа
+        
         if result.returncode != 0:
             raise subprocess.CalledProcessError(result.returncode, result.args, output=result.stdout, stderr=result.stderr)
 
-        # Логируем ответ сервера
+
         logging.info(f"Server response: {result.stdout}")
 
-        # Получаем текстовый ответ
+    
         content_class = result.stdout.strip()
     except subprocess.CalledProcessError as e:
         logging.error(f"Curl command error: {e.stderr}")
