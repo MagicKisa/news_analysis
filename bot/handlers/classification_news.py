@@ -6,7 +6,7 @@ import os
 
 router = Router()
 
-url = 'http://127.0.0.1:8000/uploadnews/'
+url = 'http://fastapi:8000/uploadnews/'
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
